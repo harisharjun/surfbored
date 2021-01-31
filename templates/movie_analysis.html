@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="jumbotron jumbotron-fluid moviejumbotron" style="margin-bottom: 0px;  background-color: darkslategrey;">
+        <div class="overlay">
+            <div class="container">
+                <!--<div class="row justify-content-center">
+                    <div class="col-6">
+                            {% with messages=get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{category}}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                    </div>
+                </div>-->
+                <div class="row justify-content-center" style="padding-top: 55px">
+                    <div class="col-md-8 col-sm-10 moviebox" style="text-align: center;">
+                        <form action="" method="POST" style="border-bottom: 1px solid white">
+                            {{ form.hidden_tag() }}
+                            <fieldset style="color: white; opacity: 1.0;">
+                                <legend class="border-bottom mb-4">
+                                    Enter a Movie Name
+                                </legend>
+                                <div class="form-group">
+        <!--                            {{ form.hashtag.label(class="form-control-label") }}-->
+                                    {% if form.hashtag.errors %}
+                                        {{ form.hashtag(class="form-control form-control-sm is-invalid") }}
+                                        <div class="invalid-feedback" style="text-align: left">
+                                            {% for error in form.hashtag.errors %}
+                                                <span style="color: red">Error: </span><span style="color: white">{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.hashtag(class="form-control form-control-sm") }}
+                                    {% endif %}
+                                    </div>
+                                    <!---->
+                            </fieldset>
+                            <div class="form-group" style="text-align: left">
+                                {{form.submit(class="btn btn-info btn-md")}}
+                            </div>
+                        </form>
+                        <p style="text-align: left;">My server is slow and needs to access Twitter API as well, so please be patient and try agian. <br><br>Currently, I am analysing Tweets using the Movie's hashtag you enter.<br><br> As I use Twitter Free API, there is a limitation on the number of requests I can send per minute. So, don't worry if you get an error, just come back again.<br><br>Get the pulse of the audience as I analyse 1000 latest Tweets to give you what they feel about the movie(or anything, really)!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

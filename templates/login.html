@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="jumbotron jumbotron-fluid registerjumbotron" style="margin-bottom: 0px;  background-color: darkslategrey;">
+        <div class="overlay">
+<!--                Div for notification messages-->
+                <div>
+                    <div class="row justify-content-center" style="padding-top: 40px; margin-bottom: -60px">
+                        <div class="col-10 col-sm-4 justify-content-center">
+                            {% with messages=get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{category}}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+<!--                    End Div for notification messages-->
+            <div class="container container-fluid">
+                <div class="row justify-content-center registerblock">
+                    <div class="col-sm-8 .d-none .d-sm-block .d-md-block">
+<!--                        Col1 Content-->
+                    </div>
+                    <div class="col-11 col-sm-4 moviebox" style="text-align: center; padding-bottom: 5px; min-height: 600px">
+                        <form action="" method="POST" style="border-bottom: 1px solid white; margin-bottom: 5px;">
+                            {{ form.hidden_tag() }}
+                            <fieldset style="color: white; opacity: 1.0;">
+                                <legend class="border-bottom mb-4">
+                                    Login
+                                </legend>
+                                <div class="form-group" style="text-align: left">
+                                    {{ form.email.label(class="form-control-label") }}
+                                    {% if form.email.errors %}
+                                        {{ form.email(class="form-control form-control-sm is-invalid") }}
+                                        <div class="invalid-feedback" style="text-align: left">
+                                            {% for error in form.email.errors %}
+                                                <span style="color: red">Error: </span><span style="color: white">{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        <span class="no-padding-top">{{ form.email(class="form-control form-control-sm") }}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="form-group" style="text-align: left">
+                                    {{ form.password.label(class="form-control-label") }}
+                                    {% if form.password.errors %}
+                                        {{ form.password(class="form-control form-control-sm is-invalid") }}
+                                        <div class="invalid-feedback" style="text-align: left">
+                                            {% for error in form.password.errors %}
+                                                <span style="color: red">Error: </span><span style="color: white">{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        <span class="no-padding-top">{{ form.password(class="form-control form-control-sm") }}</span>
+                                    {% endif %}
+                                </div>
+                                
+                            </fieldset>
+                            <div class="form-group" style="text-align: left">
+                                {{form.submit(class="btn btn-info btn-md")}}
+                            </div>
+                        </form>
+                        <span style="color: white;">Not a Bored Member yet? <a href="{{ url_for('register') }}">Register Here</a> </span><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

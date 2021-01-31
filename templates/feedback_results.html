@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="row justify-content-center" style="background: url(../static/images/whitetexture.jpg); no-repeat; background-size: cover; padding-top: 75px; margin-right: 0px;  background-color: darkslategrey; min-height: 550px">
+        <div class="col-10" style="color: black;">
+            {% for i in feedback %}
+                {{i.id}}  by: {{ i.email }}: {{ i.feedback }}<br><br>
+            {% endfor %}
+        </div>
+        <div class="col-10 col-sm-5">
+            
+        </div>
+    </div>
+{% endblock %}

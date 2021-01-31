@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+{% block content %}
+    <header>
+        <div class="jumbotron jumbotron-fluid homejumbotron" style=" background-color: darkslategrey; margin-bottom: 0px;" >
+            <div class="overlay">
+<!--                Div for notification messages-->
+                <div>
+                    <div class="row justify-content-center" style="padding-top: 40px; margin-bottom: -60px">
+                        <div class="col-10 col-sm-8 justify-content-center">
+                            {% with messages=get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{category}}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+<!--                    End Div for notification messages-->
+            <div class="container container-fluid">
+                <div class="row" style="padding-top: 55px; color: black;">
+                    
+                    <div class="col-12 homebox" style="min-height:500px; margin-top: 50px;">
+                        <!--<h1>About the SurfBored Club!</h1>-->
+                        <input id="vision" onclick="vision_toggle()" value="Vision" style="background-color: rgba(0,0,0,0); border: 0px solid white; border-bottom: 2px solid white; margin-bottom: 20px; color: white; font-size: 150%; cursor: pointer; width: 200px" />
+                        <div id="vision_content" style="display: none; color: white;">
+                            <ul>
+                                <li>Surfbored is started with an idea to be a go-to place for those who would like to do something interesting in their freetime.</li>
+                                <li>
+                                    Over a year, Surfbored intends to be:
+                                    <ul>
+                                        <li>An Indian movie database - building its own datasets, blog and sourcing data from other websites/apps.</li>
+                                        <li>A board games hub, with interesting and completely new board games</li>
+                                        <li>A platform for users to present their views, post movie articles and build engaging community</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <input id="vision" onclick="pain_points_toggle()" value="Pain Points" style="background-color: rgba(0,0,0,0); border: 0px solid white; border-bottom: 2px solid white; margin-bottom: 20px; color: white; font-size: 150%; cursor: pointer; width: 200px" />
+                        <div id="pain_points_content" style="display: none; color: white;">
+                            <ul>
+                                <li>Finding a wholistic review of an Indian movie is a problem. People generally visit IMDb or random articles to know about a movie.</li>
+                                <li>Most of the Board Game websites are advertisement heavy and do not present a clean screen when games are played. That is not very convenient for the users</li>
+                            </ul>
+                        </div>
+                        
+                        <input id="vision" onclick="use_cases_toggle()" value="Use Cases" style="background-color: rgba(0,0,0,0); border: 0px solid white; border-bottom: 2px solid white; margin-bottom: 20px; color: white; font-size: 150%; cursor: pointer; width: 200px" />
+                        <div id="use_cases_content" style="display: none; color: white;">
+                            <ul>
+                                <li>Collate real-time information about a movie at the time of its release, and present to the users whenever they need</li>
+                                <li>Surfbored will allow Users/Gamers to play board games on a clean screen.</li>
+                            </ul>
+                        </div>
+                        
+                        <input id="vision" onclick="business_model_toggle()" value="Business Model" style="background-color: rgba(0,0,0,0); border: 0px solid white; border-bottom: 2px solid white; margin-bottom: 20px; color: white; font-size: 150%; cursor: pointer; width: 200px" />
+                        <div id="business_model_content" style="display: none; color: white;">
+                            <ul>
+                                <li>This website is started as a project to facilitate my learning.</li>
+                                <li>Users can get points either by playing games or contributing to the development of the project through articles/otherwise. These points will be equivalent to real money.</li>
+                                <li>Revenue streams: Movie promotions for new releases, and games built specifically promoting a brand or a company.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        function vision_toggle(){
+            var x = document.getElementById("vision_content");
+            if (x.style.display === "block"){
+                document.getElementById("vision_content").style.display = "none";
+            }
+            else{
+                document.getElementById("vision_content").style.display = "block";
+            }
+        }
+        function use_cases_toggle(){
+            var x = document.getElementById("use_cases_content");
+            if (x.style.display === "block"){
+                document.getElementById("use_cases_content").style.display = "none";
+            }
+            else{
+                document.getElementById("use_cases_content").style.display = "block";
+            }
+        }
+        function pain_points_toggle(){
+            var x = document.getElementById("pain_points_content");
+            if (x.style.display === "block"){
+                document.getElementById("pain_points_content").style.display = "none";
+            }
+            else{
+                document.getElementById("pain_points_content").style.display = "block";
+            }
+        }
+        function business_model_toggle(){
+            var x = document.getElementById("business_model_content");
+            if (x.style.display === "block"){
+                document.getElementById("business_model_content").style.display = "none";
+            }
+            else{
+                document.getElementById("business_model_content").style.display = "block";
+            }
+        }
+    </script>
+    
+{% endblock %}

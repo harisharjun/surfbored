@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+    <header>
+        <div class="jumbotron jumbotron-fluid homejumbotron" style=" background-color: darkslategrey; margin-bottom: 0px;" >
+            <div class="overlay">
+<!--                Div for notification messages-->
+                <div>
+                    <div class="row justify-content-center" style="padding-top: 40px; margin-bottom: -60px">
+                        <div class="col-10 col-sm-8 justify-content-center">
+                            {% with messages=get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{category}}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+<!--                    End Div for notification messages-->
+            <div class="container container-fluid">
+                <div class="row" style="padding-top: 55px; color: black;">
+                    <div class="col-1"></div>
+                    <div class="col-10 homebox">
+                        <h1>Welcome to SurfBored Club!</h1>
+                        <p><br>Hi {{user}}!<br><br>This is a pilot project I started out of my need to learn Python. I would like to build many useful, yet enjoyable tools using Python, and other languages. I have just started by integrating some simple Python applications I built which I use offline, as I thought of making them available to a larger group of people.<br><br>I will be adding more features to this portal and would like to hear from you for your suggestions and feedback.<br>Incase, you need some functionality which you might want to use in your freetime, like a simple word game or a list of puzzles or anything, write about that below. I will try to spend sometime building them for you.<br><br>Thanks<br>Keep Surfin'</p>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+    
+{% endblock %}

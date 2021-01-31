@@ -1,0 +1,115 @@
+div.homejumbotron{
+    background: url(../static/images/relax.jpg) no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+div.moviejumbotron{
+    background: url(../static/images/movie.jpg) no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+div.registerjumbotron{
+    background: url(../static/images/dark.jpg) no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+div.jumbotron, div.jumbotron-fluid{
+
+}
+
+div.overlay{
+    background-color: rgba(0,0,0,0.3) !important;
+    overflow: hidden;
+    z-index: 2;
+    margin-bottom: -32px;
+}
+
+.homebox p, .homebox h1, .homebox h4, .homebox h6{
+color: white !important;
+opacity: 1.0 !important;
+}
+
+.moviebox{
+    padding-top: 65px;
+}
+
+.moviebox p, .moviebox h1{
+color: white !important;
+opacity: 1.0 !important;
+}
+
+.reviewbox{
+    background-color: rgba(0,0,0,0.1) !important;
+    overflow: hidden;
+    border: 1px solid black;
+    padding: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+}
+
+.reviewbox p, .reviewbox h6{
+    color: black !important;
+    opacity: 1.0 !important;
+}
+
+.no-padding-top{
+    padding-top: 0px;
+}
+
+.registerblock{
+    padding-top: 0px;
+}
+
+.boldclass{
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 250px){
+    .row{
+        padding-top: 0px;
+    }
+}
+
+@media only screen and (min-width:700px){
+
+.homebox{
+    background-color: rgba(0,0,0,0.8);
+    border: 1px solid white;
+}
+
+.homebox p, .homebox h1, .homebox h4, .homebox h6{
+    color: white !important;
+    opacity: 1.0 !important;
+}
+    
+.moviebox{
+    background-color: rgba(0,0,0,0.8);
+    padding-top: 50px;
+    min-height: 400px;
+    border: 1px solid white;
+}
+
+.moviebox p, .moviebox h1{
+    color: white !important;
+    opacity: 1.0 !important;
+}
+
+div.overlay{
+    background-color: rgba(0,0,0,0.0) !important;
+    overflow: hidden;
+    z-index: 2;
+}
+    
+.registerblock{
+    padding-top: 55px;
+}
+}

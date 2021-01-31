@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="jumbotron jumbotron-fluid" style=" background-color: rgba(0,0,0,0.8)" >
+        <div class="overlay">
+<!--                Div for notification messages-->
+                <div>
+                    <div class="row justify-content-center" style="padding-top: 40px; margin-bottom: -60px">
+                        <div class="col-10 col-sm-8 justify-content-center">
+                            {% with messages=get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{category}}">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+<!--                    End Div for notification messages-->
+            <div class="container container-fluid">
+                <div class="row justify-content-center" style="text-align: center; padding-top: 55px;">
+                    <script>
+                        $(document).onload(function(){
+                            $("#Level1InputBox").hide();
+                        })
+                    </script>
+                    <div class="col-12 homebox" style="padding-top:20px;">
+                        <h4>Guess the Word!</h4>
+                        <h6 style="margin-bottom: 20px; padding-bottom: 4px; border-bottom: 1px solid white;">Choose your level...</h6>
+                        <div class="row justify-content-center" id="LevelsList">
+                            <div class="col-12 col-sm-2" style="text-align: center; padding-bottom: 20px">
+                                    <input id="Level1" type="submit" name="guess_the_word_level1" value="Level 1" class="btn btn-primary">
+                            </div>
+                            <!--<form action="" method="post" onsubmit="return LevelClicked()">
+                                <div class="col-12 col-sm-2" style="text-align: center; padding-bottom: 20px">
+                                    <input id="Level2" type="submit" name="guess_the_word_level1" value="Level 1" class="btn btn-primary">
+                                </div>
+                                <div class="col-12 col-sm-2" style="text-align: center; padding-bottom: 20px">
+                                    <input type="submit" name="guess_the_word_level2" value="Level 2" class="btn btn-info">
+                                </div>
+                                <div class="col-12 col-sm-2" style="text-align: center; padding-bottom: 20px">
+                                    <input type="submit" name="guess_the_word_level3" value="Level 3" class="btn btn-success">
+                                </div>
+                                <div class="col-12 col-sm-2" style="text-align: center; padding-bottom: 20px">
+                                    <input type="submit" name="guess_the_word_level4" value="Level 4" class="btn btn-warning">
+                                </div>
+                                <div class="col-12 col-sm-2" style="text-align: center; padding-bottom: 20px">
+                                    <input type="submit" name="guess_the_word_level5" value="Level 5" class="btn btn-danger">
+                                </div>
+                            </form>-->
+                        </div>
+                        <div class="col-12 col-sm-2" style="text-align: center; padding-bottom: 20px">
+                                    <input id="Level1InputBox" type="text" name="guess_the_word_level1" value="Level 1" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+                    <script>
+                        $(document).ready(function(){
+                            $("#Level1").click(function(event){
+                                $("#LevelsList").hide();
+                                $("#Level1InputBox").hide();
+                            })
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
